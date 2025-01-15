@@ -10,7 +10,7 @@
         <a href="centre.php" aria-label="Voir la liste des centres disponibles">Liste des centres</a>
   
     </div>
-
+<h2>Note du medecin</h2>
 
 
     <?php include 'includes/footer.php';?>
