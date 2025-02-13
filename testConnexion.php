@@ -2,10 +2,10 @@
 session_start();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Informations de connexion à la base de données
-    $servername = "192.168.1.15";
+    $servername = "192.168.1.11";
     $username = "healthnorth";
     $password = "healthnorth-password";
-    $dbname = "inscriptions";
+    $dbname = "bdd";
 
     try {
         // Connexion à la base de données avec PDO

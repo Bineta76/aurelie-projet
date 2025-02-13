@@ -4,10 +4,10 @@
 session_start();  // Démarre la session
 
 // Connexion à la base de données
-$servername = "192.168.1.15";   // A192.168.1.15dresse du serveur de base de données
+$servername = "192.168.1.11";   // Adresse du serveur de base de données
 $username_db = "healthnorth";       // Nom d'utilisateur de la base de données
 $password_db = "healthnorth-password";           // Mot de passe de la base de données
-$dbname = "inscriptions";         // Nom de la base de données
+$dbname = "bdd";         // Nom de la base de données
 
 // Création de la connexion
 $conn = new mysqli($servername, $username_db, $password_db, $dbname);
