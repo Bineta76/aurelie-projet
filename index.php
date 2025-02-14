@@ -86,6 +86,7 @@ include 'includes/header.php';
                     <input type="password" id="password" name="password" class="form-control" placeholder="Entrez votre mot de passe" required>
                 </div>
                 <button type="submit" class="btn btn-primary w-100 mt-3">Se connecter</button>
+                <button type="submit" class="btn btn-primary w-100 mt-3">Inscription</button>
                 <p class="text-center mt-3">
                     Pas encore inscrit ? <a href="inscription.php">Inscrivez-vous ici</a>
                 </p>

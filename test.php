@@ -4,7 +4,7 @@
 session_start();  // Démarre la session
 
 // Connexion à la base de données
-$servername = "192.168.1.11";   // Adresse du serveur de base de données
+$servername = "localhost";   // Adresse du serveur de base de données
 $username_db = "root";       // Nom d'utilisateur de la base de données
 $password_db = "";           // Mot de passe de la base de données
 $dbname = "bdd";         // Nom de la base de données

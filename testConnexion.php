@@ -2,7 +2,7 @@
 session_start();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Informations de connexion à la base de données
-    $servername = "192.168.1.11";
+    $servername = "localhost";
     $username = "root";
     $password = "";
     $dbname = "bdd";
@@ -47,4 +47,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Erreur de connexion : " . $e->getMessage();
     }
 }
+
 ?>
