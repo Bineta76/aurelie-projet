@@ -4,9 +4,10 @@
     <a href=index.php aria-label="Accueil">Accueil</a>
         <a href="quiSommesNous.php" aria-label="Qui sommes-nous ?">Qui sommes-nous?</a>
         <a href="carte.php" aria-label="Nous contacter">Contact</a>
-        <a href="lien.php" aria-label="Créer un rendez-vous">Créer un rendez-vous</a>
+        <a href="rdv.php" aria-label="Créer un rendez-vous">Créer un rendez-vous</a>
         <a class="active "href="planningmedecin.php" aria-label="Voir le planning du médecin">Planning</a>
         <a href="centre.php" aria-label="Voir la liste des centres disponibles">Liste des centres</a>
+        <a href="contactSupport.php" aria-label="contactSupport">Aide  
     </div>
     <h2>
         <center>Javascript Fullcalendar</center>

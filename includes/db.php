@@ -2,7 +2,7 @@
 $host = "localhost";  // Serveur MySQL (par défaut localhost sous XAMPP)
 $user = "root";       // Utilisateur MySQL par défaut sous XAMPP
 $pass = "";           // Aucun mot de passe par défaut sous XAMPP
-$db = "mysql";        // Base de données existante (ou mets la tienne)
+$db = "bdd";        // Base de données existante (ou mets la tienne)
 
 // Connexion MySQLi
 $conn = new mysqli($host, $user, $pass, $db);

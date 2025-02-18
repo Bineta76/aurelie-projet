@@ -11,7 +11,9 @@ include 'includes/header.php';
             <a href="contact.php" aria-label="Nous contacter">Contact</a>
             <a href="rdv.php" aria-label="Créer un rendez-vous">Créer un rendez-vous</a>
             <a href="planningmedecin.php" aria-label="Voir le planning du médecin">Planning</a>
-            <a href="centre.php" aria-label="Voir la liste des centres disponibles">Liste des centres</a>
+            <a href="centre.php" aria-label="Voir la liste des centres disponibles">Liste des centres
+            <a href="contactSupport.php" aria-label="contactSupport">Aide    
+            </a>
         </div>
 
         <center><img src="assets/images/batimentlabo.jpg" width="1100px" height="600px"></center>
@@ -86,7 +88,9 @@ include 'includes/header.php';
                     <input type="password" id="password" name="password" class="form-control" placeholder="Entrez votre mot de passe" required>
                 </div>
                 <button type="submit" class="btn btn-primary w-100 mt-3">Se connecter</button>
-                <button type="submit" class="btn btn-primary w-100 mt-3">Inscription</button>
+                <button type="submit" class="btn btn-primary w-100 mt-3">inscription</button>
+                
+                
                 <p class="text-center mt-3">
                     Pas encore inscrit ? <a href="inscription.php">Inscrivez-vous ici</a>
                 </p>

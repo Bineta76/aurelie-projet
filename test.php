@@ -1,25 +1,23 @@
 
 
-<?php 
+<?php
+session_start();  // Start the session
 
+// Database connection parameters
+$servername = "localhost";
+$username_db = "root";
+$password_db = "";
+$dbname = "bdd";
 
-session_start();  // Démarre la session
-
-// Connexion à la base de données
-$servername = "localhost";   // Adresse du serveur de base de données
-$username_db = "root";       // Nom d'utilisateur de la base de données
-$password_db = "";           // Mot de passe de la base de données
-$dbname = "bdd";         // Nom de la base de données
-
-// Création de la connexion
+// Create connection
 $conn = new mysqli($servername, $username_db, $password_db, $dbname);
 
-// Vérification de la connexion
+// Check the connection
 if ($conn->connect_error) {
-    die("Échec de la connexion : " . $conn->connect_error);
+    die("Connection failed: " . $conn->connect_error);
 }
 
-// Vérification si l'utilisateur est déjà connecté
+// Redirect if already logged in
 if (isset($_SESSION['id_patient'])) {
     header("Location: index.php");
     exit;
@@ -27,15 +25,15 @@ if (isset($_SESSION['id_patient'])) {
 
 $error_message = "";
 
-// Traitement du formulaire après soumission
+// Handle form submission
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    // Protection contre les injections SQL
+    // Prevent SQL injection
     $username = $conn->real_escape_string($username);
 
-    // Requête pour vérifier si l'utilisateur existe dans la base de données
+    // Query to check if the user exists
     $sql = "SELECT * FROM patient WHERE username = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("s", $username);
@@ -43,41 +41,45 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $result = $stmt->get_result();
 
     if ($result->num_rows > 0) {
-        // L'utilisateur existe, on récupère les informations
+        // User exists, get the data
         $user = $result->fetch_assoc();
 
-        // Vérification du mot de passe avec password_verify (si le mot de passe est haché)
+        // Check password using password_verify()
         if (password_verify($password, $user['password'])) {
-            // Authentification réussie, on stocke l'ID de l'utilisateur dans la session
-            $_SESSION['id_patient'] = $user['id_patient'];  // Assurez-vous d'avoir un champ 'id_patient' dans votre table patients
-            $_SESSION['username'] = $user['username'];  // Vous pouvez aussi stocker le nom d'utilisateur si nécessaire
+            // Successful login, set session variables
+            $_SESSION['id_patient'] = $user['id_patient'];
+            $_SESSION['username'] = $user['username'];
 
-            // Redirection vers lien.php
+            // Regenerate session ID for security
+            session_regenerate_id(true);
+
+            // Redirect to another page
             header("Location: lien.php");
             exit;
         } else {
-            // Mot de passe incorrect
+            // Incorrect password
             $error_message = "Mot de passe incorrect.";
         }
     } else {
-        // L'utilisateur n'existe pas dans la base de données
+        // User doesn't exist
         $error_message = "Nom d'utilisateur incorrect.";
     }
 
-    // Fermer la connexion préparée
+    // Close the prepared statement
     $stmt->close();
 }
 
-// Fermer la connexion à la base de données
+// Close database connection
 $conn->close();
 ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Connexion</title>
-    <!-- Inclure ici ton CSS ou les liens vers Bootstrap si nécessaire -->
+    <!-- Add CSS for styling -->
 </head>
 <body>
     <div class="container w-50">
@@ -105,5 +107,3 @@ $conn->close();
     </div>
 </body>
 </html>
-
-

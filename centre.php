@@ -9,7 +9,8 @@
         <a href="rdv.php" aria-label="Créer un rendez-vous">Créer un rendez-vous</a>
         <a href="planningmedecin.php" aria-label="Voir le planning du médecin">Planning</a>
         <a class="active" href="centre.php"Voir la liste des centres disponibles">Liste des centres</a>>
-        
+        <a href="contactSupport.php" aria-label="contactSupport">Aide
+            
     </div>
 
     <h3>Laboratoires disponibles</h3> 
