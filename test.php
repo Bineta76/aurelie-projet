@@ -21,7 +21,7 @@ if ($conn->connect_error) {
 
 // Vérification si l'utilisateur est déjà connecté
 if (isset($_SESSION['id_patient'])) {
-    header("Location: lien.php");
+    header("Location: index.php");
     exit;
 }
 
