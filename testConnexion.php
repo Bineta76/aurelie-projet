@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         // Préparation de la requête pour récupérer l'utilisateur
-        $sql = "SELECT id_patient, nom mot_de_passe FROM patient WHERE nom = :nom";
+        $sql = "SELECT id_patient, nom, mot_de_passe FROM patient WHERE nom = :nom";
         $stmt = $conn->prepare($sql);
         $stmt->execute([':nom' => $nom]);
 
@@ -34,9 +34,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (password_verify($password, $user['mot_de_passe'])) {
                 $_SESSION['id_patient'] = $user['id_patient'];
                 $_SESSION['nom'] = $user['nom'];
-            
-                header("Location: lien.php");
                 
+                header("Location: lien.php");
+                exit(); // Terminate script after redirection
             } else {
                 echo "Mot de passe incorrect.";
             }
@@ -47,8 +47,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Erreur de connexion : " . $e->getMessage();
     }
 }
-
 ?>
- -->
-
- 

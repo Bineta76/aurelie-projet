@@ -1,14 +1,18 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "bdd";
+$host = "localhost";  // Serveur MySQL (par défaut localhost sous XAMPP)
+$user = "root";       // Utilisateur MySQL par défaut sous XAMPP
+$pass = "";           // Aucun mot de passe par défaut sous XAMPP
+$db = "mysql";        // Base de données existante (ou mets la tienne)
 
-try {
-    $pdo = new PDO("mysql:host=$servername;dbname=$dbname;charset=utf8mb4", $username, $password, [
-        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-    ]);
-} catch (PDOException $e) {
-    die("Erreur de connexion à la base de données : " . $e->getMessage());
+// Connexion MySQLi
+$conn = new mysqli($host, $user, $pass, $db);
+
+// Vérification de la connexion
+if ($conn->connect_error) {
+    die("Connexion échouée : " . $conn->connect_error);
 }
+echo "Connexion réussie à MySQL ! 🎉";
+
+
+
+

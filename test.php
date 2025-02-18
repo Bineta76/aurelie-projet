@@ -1,6 +1,8 @@
- 
 
-<?php
+
+<?php 
+
+
 session_start();  // Démarre la session
 
 // Connexion à la base de données
@@ -103,3 +105,5 @@ $conn->close();
     </div>
 </body>
 </html>
+
+
